@@ -1,8 +1,15 @@
 'use client';
 import { useEffect, useRef } from "react";
+import { ScrollAnimatedCard } from "@/app/(components)/ui/pop-up-scrollable";
 
 function HomePage() {
   const elementsRef = useRef<NodeListOf<HTMLElement> | null>(null);
+
+  const container: React.CSSProperties = {
+    margin: "100px auto",
+    maxWidth: 500,
+    paddingBottom: 100,
+  }
 
   useEffect(() => {
     elementsRef.current = document.querySelectorAll(".reveal");
@@ -58,6 +65,9 @@ function HomePage() {
           </div>
         </div>
       </section>
+      <div style={container}>
+            <ScrollAnimatedCard gradientFrom={200} gradientTo={250} chlidren={'🚀'} />
+      </div>
     </div>
   );
 };
