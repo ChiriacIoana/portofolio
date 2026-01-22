@@ -34,48 +34,53 @@ const fadeInVariants: Variants = {
 };
 
 function HomePage() {
-  const sectionNr="<01/>"
+  const sectionNr = "01";
   return (
     <div className="bg-[#131316] text-white font-roboto">
-      <div className="">
-        <motion.section
-          className="min-h-screen flex items-center"
-          variants={revealVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: false, amount: 0.3 }}
+      <motion.section
+        className="py-20 flex items-center"
+        variants={revealVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: false, amount: 0.3 }}
+      >
+        <motion.span
+          className="text-sm text-gray-500 font-mono absolute left-0 ml-12"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ delay: 0.1 }}
         >
-          <motion.span
-            className="text-sm text-gray-500 font-mono absolute left-0 ml-12 top-50"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 0.1 }}
-          >
-            {sectionNr}
-          </motion.span>
-          <div className="max-w-xl ml-30 text-left space-y-4">
-            <p className="text-sm text-gray-400 font-mono tracking-wider">
-              hi, my name is
-            </p>
-            <div className="space-y-2">
-              <h1 className="text-5xl md:text-5xl font-bold font-inter leading-tight bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-                Ioana Chiriac
-              </h1>
-              <h2 className="text-2xl md:text-2xl text-gray-400 font-mono">
-                I like to build things for the web.
-              </h2>
-            </div>
-            <p className="text-gray-300 font-inter leading-relaxed max-w-lg text-base">
-              I am a high-school student passionate about web development and
-              embedded systems. I enjoy creating -type a lot of text here
-              blablablablabla
-            </p>
+          {sectionNr}
+        </motion.span>
+        <div className="max-w-xl ml-30 text-left space-y-4">
+          <p className="text-sm text-gray-400 font-mono tracking-wider">
+            hi, my name is
+          </p>
+          <div className="space-y-2">
+            <h1 className="text-5xl md:text-5xl font-bold font-inter leading-tight bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+              Ioana Chiriac
+            </h1>
+            <h2 className="text-2xl md:text-2xl text-gray-400 font-mono">
+              I like to build things for the web.
+            </h2>
           </div>
-        </motion.section>
-      </div>
+          <p className="text-sm text-gray-400 font-mono tracking-wider">
+            I am a high-school student passionate about web development and
+            embedded systems. I enjoy creating -type a lot of text here
+            blablablablabla
+          </p>
+        </div>
+      </motion.section>
+      <motion.div
+        className="w-px h-60 bg-gray-700 ml-30 my-0"
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        style={{ transformOrigin: "top" }}
+      ></motion.div>
 
       <motion.section
-        className="min-h-screen flex items-center"
+        className="py-20 flex items-center"
         variants={revealVariants}
         initial="hidden"
         whileInView="visible"
