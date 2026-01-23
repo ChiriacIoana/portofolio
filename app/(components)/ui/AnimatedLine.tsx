@@ -1,31 +1,34 @@
 "use client";
 
 import { motion } from "framer-motion";
-import clsx from "clsx";
-
-type Props = {
-  className?: string;
-  orientation?: "vertical" | "horizontal";
-  delay?: number;
-  duration?: number;
-};
 
 export function AnimatedLine({
-  className,
   orientation = "vertical",
+  className = "",
   delay = 0,
-  duration = 1,
-}: Props) {
-  const isVertical = orientation === "vertical";
-
+}: {
+  orientation?: "vertical" | "horizontal";
+  className?: string;
+  delay?: number;
+}) {
   return (
     <motion.div
-      className={clsx(className)}
-      initial={isVertical ? { scaleY: 0 } : { scaleX: 0 }}
-      whileInView={isVertical ? { scaleY: 1 } : { scaleX: 1 }}
-      transition={{ delay, duration, ease: "easeInOut" }}
+      className={className}
+      initial={
+        orientation === "vertical"
+          ? { scaleY: 0 }
+          : { scaleX: 0 }
+      }
+      whileInView={
+        orientation === "vertical"
+          ? { scaleY: 1 }
+          : { scaleX: 1 }
+      }
+      transition={{ duration: 0.6, ease: "easeOut", delay }}
+      viewport={{ once: true }}
       style={{
-        transformOrigin: isVertical ? "top" : "left",
+        transformOrigin:
+          orientation === "vertical" ? "top" : "left",
       }}
     />
   );

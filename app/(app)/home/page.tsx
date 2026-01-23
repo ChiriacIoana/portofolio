@@ -1,5 +1,6 @@
 "use client";
 
+import { SkillTree } from "@/app/(components)/ui/SkillTree";
 import { Github, Instagram, Mail } from "lucide-react";
 import { AnimatedSection } from "@/app/(components)/ui/AnimatedSection";
 import { AnimatedLine } from "@/app/(components)/ui/AnimatedLine";
@@ -83,22 +84,18 @@ function HomePage() {
       </div>
 
       <AnimatedSection
-        className="py-20 flex items-center"
+        className="py-20 flex items-start"
         variants={slideReveal(-100, 1)}
       >
-        <span className="text-sm text-gray-500 font-mono absolute left-0 ml-12">
+        <span className="text-sm text-gray-500 font-mono absolute py-20 left-0 ml-12">
           02
         </span>
 
-        <div className="max-w-xl ml-30">
-          <h2 className="text-3xl font-bold">hire me pls</h2>
-          <p className="mt-2">please hire me</p>
+        <div className="max-w-xl ml-30 space-y-10">
+          <h2 className="text-3xl font-bold">what i do</h2>
+          <SkillTree />
         </div>
       </AnimatedSection>
-
-      <div className="max-w-md mx-auto py-24">
-        <ScrollAnimatedCard gradientFrom={200} gradientTo={250} chlidren="🚀" />
-      </div>
     </div>
   );
 }
