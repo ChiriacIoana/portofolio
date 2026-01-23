@@ -1,212 +1,103 @@
 "use client";
 
-import { motion, easeOut, Variants } from "framer-motion";
+import { Github, Instagram, Mail } from "lucide-react";
+import { AnimatedSection } from "@/app/(components)/ui/AnimatedSection";
+import { AnimatedLine } from "@/app/(components)/ui/AnimatedLine";
+import { AnimatedIconLink } from "@/app/(components)/ui/AnimatedIconLink";
+import { slideReveal } from "@/app/lib/animations";
 import { ScrollAnimatedCard } from "@/app/(components)/ui/pop-up-scrollable";
-import { Github, Instagram } from "lucide-react";
-
-const revealVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    filter: "blur(5px)",
-    x: -100,
-  },
-  visible: {
-    opacity: 1,
-    filter: "blur(0px)",
-    x: 0,
-    transition: {
-      duration: 1,
-      ease: easeOut,
-    },
-  },
-};
-
-const fadeInVariants: Variants = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 18,
-      ease: easeOut,
-    },
-  },
-};
 
 function HomePage() {
-  const sectionNr1 = "01";
-  const sectionNr2 = "02";
   return (
     <div className="bg-[#131316] text-white font-roboto">
-      <motion.section
+      <AnimatedSection
         className="py-20 flex items-center"
-        variants={revealVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        variants={slideReveal(-100, 1)}
       >
-        <motion.span
-          className="text-sm text-gray-500 font-mono absolute left-0 ml-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          {sectionNr1}
-        </motion.span>
-        <div className="max-w-xl ml-30 text-left space-y-4">
-          <p className="text-sm text-gray-400 font-mono tracking-wider">
-            hi, my name is
-          </p>
-          <div className="space-y-2">
-            <h1 className="text-5xl md:text-5xl font-bold font-inter leading-tight bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
-              Ioana Chiriac
-            </h1>
-            <h2 className="text-2xl md:text-2xl text-gray-400 font-mono">
-              I like to build things for the web.
-            </h2>
-          </div>
-          <p className="text-sm text-gray-400 font-mono tracking-wider">
+        <span className="text-sm text-gray-500 font-mono absolute left-0 ml-12">
+          01
+        </span>
+
+        <div className="max-w-xl ml-30 space-y-4">
+          <p className="text-sm text-gray-400 font-mono">hi, my name is</p>
+
+          <h1 className="text-5xl font-bold bg-gradient-to-r from-white to-gray-500 bg-clip-text text-transparent">
+            Ioana Chiriac
+          </h1>
+
+          <h2 className="text-2xl text-gray-400 font-mono">
+            I like to build stuff and things for the web.
+          </h2>
+
+          <p className="text-sm text-gray-400 font-mono">
             I am a high-school student passionate about web development and
-            embedded systems. I enjoy creating -type a lot of text here
-            blablablablabla
+            embedded systems.
           </p>
         </div>
-      </motion.section>
+      </AnimatedSection>
 
-      <div className="relative ml-0 my-0">
-        <motion.div
-          className="w-px h-60 bg-gray-700 ml-30 my-0"
-          initial={{ scaleY: 0 }}
-          whileInView={{ scaleY: 1 }}
-          transition={{ duration: 1, ease: "easeInOut" }}
-          style={{ transformOrigin: "top" }}
-        ></motion.div>
+      <div className="relative">
+        <AnimatedLine className="w-px h-80 bg-gray-700 ml-30" delay={0} />
 
-        <motion.div
-          className="absolute top-17 left-30 h-px w-25 bg-gray-700 "
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-          style={{ transformOrigin: "left" }}
-        ></motion.div>
+        <AnimatedLine
+          orientation="horizontal"
+          className="absolute top-17 left-30 h-px w-25 bg-gray-700"
+          delay={0.3}
+        />
 
-        <motion.div
-          className="absolute top-15 left-55 w-2 h-2 bg-gray-400 rounded-xs translate-y-1/2 opacity-50"
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.3 }}
-        ></motion.div>
-
-        <motion.div
-          className="absolute top-36 left-55 w-2 h-2 bg-gray-400 rounded-xs translate-y-1/2 opacity-50"
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.3 }}
-        ></motion.div>
-
-        <motion.a
+        <AnimatedIconLink
           href="https://github.com/ChiriacIoana"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-16 px-30 translate-x-1/2 text-gray-400 hover:text-white transition-colors"
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.5, duration: 0.3 }}
+          className="absolute top-16 px-30 translate-x-1/2"
+          delay={0.5}
         >
           <Github size={20} />
-        </motion.a>
+        </AnimatedIconLink>
 
-        <motion.div
+        <AnimatedLine
+          orientation="horizontal"
           className="absolute top-38 left-30 h-px w-25 bg-gray-700"
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          transition={{ delay: 0.3, duration: 0.5, ease: "easeInOut" }}
-          style={{ transformOrigin: "left" }}
-        ></motion.div>
+          delay={0.4}
+        />
 
-        <motion.a
+        <AnimatedIconLink
           href="https://www.instagram.com/ioana.chr9"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="absolute top-36 px-30 translate-x-1/2 text-gray-400 hover:text-white transition-colors"
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.7, duration: 0.3 }}
+          className="absolute top-36 px-30 translate-x-1/2"
+          delay={0.7}
         >
           <Instagram size={20} />
-        </motion.a>
+        </AnimatedIconLink>
+
+        <AnimatedLine
+          orientation="horizontal"
+          className="absolute top-59 left-30 h-px w-25 bg-gray-700"
+          delay={0.5}
+        />
+
+        <AnimatedIconLink
+          href="mailto:ioana.chiriac@email.com"
+          className="absolute top-56 px-30 translate-x-1/2"
+          delay={0.9}
+        >
+          <Mail size={20} />
+        </AnimatedIconLink>
       </div>
 
-      <motion.section
+      <AnimatedSection
         className="py-20 flex items-center"
-        variants={revealVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
+        variants={slideReveal(-100, 1)}
       >
-        <motion.span
-          className="text-sm text-gray-500 font-mono absolute left-0 ml-12"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.1 }}
-        >
-          {sectionNr2}
-        </motion.span>
-        <div className="max-w-xl ml-30 text-left">
+        <span className="text-sm text-gray-500 font-mono absolute left-0 ml-12">
+          02
+        </span>
+
+        <div className="max-w-xl ml-30">
           <h2 className="text-3xl font-bold">hire me pls</h2>
           <p className="mt-2">please hire me</p>
         </div>
-      </motion.section>
+      </AnimatedSection>
 
-      <motion.section
-        className="min-h-screen grid place-items-center"
-        variants={revealVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.3 }}
-      >
-        <div className="text-center">
-          <p className="mb-8 text-xl">google hire me</p>
-
-          <div className="flex flex-wrap justify-center gap-5">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <motion.div
-                key={i}
-                variants={revealVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: false }}
-                transition={{
-                  duration: 1,
-                  ease: easeOut,
-                  delay: i * 0.2,
-                }}
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
-                  alt="Google Logo"
-                  className="w-[200px]"
-                />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Scroll card */}
-      <div
-        style={{
-          margin: "100px auto",
-          maxWidth: 500,
-          paddingBottom: 100,
-        }}
-      >
-        <ScrollAnimatedCard
-          gradientFrom={200}
-          gradientTo={250}
-          chlidren={"🚀"}
-        />
+      <div className="max-w-md mx-auto py-24">
+        <ScrollAnimatedCard gradientFrom={200} gradientTo={250} chlidren="🚀" />
       </div>
     </div>
   );
