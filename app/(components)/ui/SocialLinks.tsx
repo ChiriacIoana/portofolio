@@ -1,2 +1,2 @@
 import {motion} from 'framer-motion';
-import {Github, Instagram, Mail} from 'lucide-react';
+import {Github, Instagram, Mail, Linkedin} from 'lucide-react';

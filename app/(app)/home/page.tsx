@@ -1,12 +1,13 @@
 "use client";
 
 import { SkillTree } from "@/app/(components)/ui/SkillTree";
-import { Github, Instagram, Mail } from "lucide-react";
+import { Github, Instagram, LucideLinkedin, Mail } from "lucide-react";
 import { AnimatedSection } from "@/app/(components)/ui/AnimatedSection";
 import { AnimatedLine } from "@/app/(components)/ui/AnimatedLine";
 import { AnimatedIconLink } from "@/app/(components)/ui/AnimatedIconLink";
 import { slideReveal } from "@/app/lib/animations";
 import { ScrollAnimatedCard } from "@/app/(components)/ui/pop-up-scrollable";
+import { ExperienceSection } from "@/app/(components)/ui/ExperienceSection";
 
 function HomePage() {
   return (
@@ -75,11 +76,11 @@ function HomePage() {
         />
 
         <AnimatedIconLink
-          href="mailto:ioana.chiriac@email.com"
+          href="https://www.linkedin.com/in/chiriac-ioana-011801249"
           className="absolute top-56 px-30 translate-x-1/2"
           delay={0.9}
         >
-          <Mail size={20} />
+          <LucideLinkedin size={20} />
         </AnimatedIconLink>
       </div>
 
@@ -87,13 +88,26 @@ function HomePage() {
         className="py-20 flex items-start"
         variants={slideReveal(-100, 1)}
       >
-        <span className="text-sm text-gray-500 font-mono absolute py-20 left-0 ml-12">
+        <span className="text-sm text-gray-500 font-mono absolute py-2.5 left-0 ml-12">
           02
         </span>
 
         <div className="max-w-xl ml-30 space-y-10">
-          <h2 className="text-3xl font-bold">what i do</h2>
+          <h2 className="text-3xl font-bold">What i do</h2>
           <SkillTree />
+        </div>
+      </AnimatedSection>
+
+       <AnimatedSection
+        className="py-20 flex items-start"
+        variants={slideReveal(-100, 1)}
+      >
+        <span className="text-sm text-gray-500 font-mono py-26 absolute left-0 ml-12">
+          03
+        </span>
+
+        <div className="ml-30 w-full">
+          <ExperienceSection />
         </div>
       </AnimatedSection>
     </div>

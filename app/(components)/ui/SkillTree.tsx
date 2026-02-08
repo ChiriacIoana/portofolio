@@ -33,13 +33,13 @@ export function SkillTree() {
         />
 
         <TreeBranch
-          title="Programming"
+          title="Languages"
           delay={0.7}
           skills={[
             { label: "JavaScript", level: 4 },
             { label: "TypeScript", level: 3 },
-            { label: "C / C++", level: 3 },
-            { label: "Python", level: 1 },
+            { label: "C / C++", level: 5 },
+            { label: "Python", level: 2 },
           ]}
         />
 
@@ -48,7 +48,8 @@ export function SkillTree() {
           delay={0.9}
           skills={[
             { label: "Arduino", level: 3 },
-            { label: "ok", level: 3 },
+            { label: "ESP32", level: 3 },
+            { label: "REV Control Hub", level: 5 },
           ]}
         />
       </div>
